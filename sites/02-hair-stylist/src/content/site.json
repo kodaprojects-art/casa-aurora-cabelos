@@ -2,15 +2,15 @@
   "businessName": "Casa Aurora Cabelos",
   "reference": "R5",
   "seo": {
-    "title": "Casa Aurora Cabelos | Cabeleireiro em [TODO]",
-    "description": "Cabeleireiro autoral em [TODO]: cortes, coloração e tratamentos pensados para o seu estilo. Agende seu horário."
+    "title": "Casa Aurora Cabelos | Cabeleireiro em Belo Horizonte",
+    "description": "Cabeleireiro autoral em Belo Horizonte: cortes, coloração e tratamentos pensados para o seu estilo. Agende seu horário."
   },
   "sections": [
     {
       "id": "navbar",
       "logoText": "Casa Aurora",
       "links": ["Sobre", "Portfólio", "Serviços", "Contato"],
-      "mobileContact": { "phone": "[TODO]", "email": "[TODO]" }
+      "mobileContact": { "phone": "(31) 4000-0000", "email": "contato@casaauroracabelos.com.br" }
     },
     {
       "id": "hero",
@@ -38,9 +38,9 @@
       "id": "guides",
       "heading": "Guias de cuidados",
       "items": [
-        { "title": "Como manter a cor por mais tempo", "image": { "alt": "Produtos para cabelo colorido", "unsplashQuery": "hair care products" } },
-        { "title": "Escolhendo o corte ideal para seu rosto", "image": { "alt": "Cliente diante do espelho do salão", "unsplashQuery": "salon mirror client" } },
-        { "title": "Rotina de cuidados em casa", "image": { "alt": "Escova e pente sobre a bancada", "unsplashQuery": "hairbrush comb flat lay" } }
+        { "title": "Como manter a cor por mais tempo", "text": "Dicas para preservar o brilho e o tom entre as visitas.", "price": "R$ 19", "image": { "alt": "Produtos para cabelo colorido", "unsplashQuery": "hair care products" } },
+        { "title": "Escolhendo o corte ideal para seu rosto", "text": "Formatos de rosto e cortes que valorizam cada um.", "price": "R$ 19", "image": { "alt": "Cliente diante do espelho do salão", "unsplashQuery": "salon mirror client" } },
+        { "title": "Rotina de cuidados em casa", "text": "Passo a passo simples para lavar, hidratar e finalizar.", "price": "R$ 19", "image": { "alt": "Escova e pente sobre a bancada", "unsplashQuery": "hairbrush comb flat lay" } }
       ],
       "link": { "label": "Ver todos", "href": "/guias" }
     },
@@ -53,32 +53,32 @@
     {
       "id": "principal",
       "heading": "Conheça o cabeleireiro responsável",
-      "name": "[TODO]",
+      "name": "Helena Prado",
       "link": { "label": "Mais sobre nós", "href": "/sobre" },
       "image": { "alt": "Retrato do cabeleireiro no salão", "unsplashQuery": "hairdresser portrait" }
     },
     {
       "id": "clients",
       "heading": "Marcas e parceiros",
-      "logos": ["[TODO]", "[TODO]", "[TODO]", "[TODO]"]
+      "logos": ["Lumina Hair", "Botânica Pro", "Fios & Co.", "Atelier Brilho"]
     },
     {
       "id": "reviews",
       "heading": "Avaliações",
       "items": [
-        { "quote": "[TODO]", "author": "[TODO]" },
-        { "quote": "[TODO]", "author": "[TODO]" },
-        { "quote": "[TODO]", "author": "[TODO]" }
+        { "quote": "Saí com a cor exatamente como imaginei. Atendimento atencioso do início ao fim.", "author": "Marina Lopes" },
+        { "quote": "Finalmente um corte que funciona no meu cabelo cacheado. Já marquei o próximo.", "author": "Juliana Reis" },
+        { "quote": "Ambiente acolhedor e equipe que escuta de verdade. Recomendo de olhos fechados.", "author": "Rafael Moura" }
       ]
     },
     {
       "id": "faq",
       "heading": "Perguntas sobre cabelo",
       "items": [
-        { "q": "Quanto custa um corte?", "a": "[TODO]" },
-        { "q": "Preciso agendar com antecedência?", "a": "[TODO]" },
-        { "q": "Quanto tempo dura uma coloração?", "a": "[TODO]" },
-        { "q": "Quais produtos vocês utilizam?", "a": "[TODO]" }
+        { "q": "Quanto custa um corte?", "a": "Cortes femininos a partir de R$ 120 e masculinos a partir de R$ 70." },
+        { "q": "Preciso agendar com antecedência?", "a": "Recomendamos agendar com pelo menos 3 dias de antecedência." },
+        { "q": "Quanto tempo dura uma coloração?", "a": "Em média de 2 a 4 horas, conforme a técnica e o comprimento." },
+        { "q": "Quais produtos vocês utilizam?", "a": "Linhas profissionais veganas, livres de parabenos e sulfatos." }
       ],
       "link": { "label": "Mais respostas", "href": "/faq" }
     },
@@ -90,9 +90,9 @@
     },
     {
       "id": "footer",
-      "socials": ["Instagram", "Facebook", "TikTok", "[TODO]"],
-      "phone": "[TODO]",
-      "email": "[TODO]",
+      "socials": ["Instagram", "Facebook", "TikTok", "Pinterest"],
+      "phone": "(31) 4000-0000",
+      "email": "contato@casaauroracabelos.com.br",
       "links": ["Guias", "Feedback", "FAQ", "Garantia", "Trabalhe conosco", "Termos e privacidade"]
     }
   ]

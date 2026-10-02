@@ -103,7 +103,7 @@ const guideImgs = [guide1, guide2, guide3];
         ))}
       </div>
       <div class="showcase__text">
-        <p class="eyebrow">[TODO] cidade</p>
+        <p class="eyebrow">Belo Horizonte</p>
         <h2 id="servicos-title" class="h">{services.heading}</h2>
         <ul class="showcase__list">
           {gallery.items.map((item: Section, i: number) => (
@@ -124,7 +124,7 @@ const guideImgs = [guide1, guide2, guide3];
       <div class="guides__intro">
         <p class="eyebrow">Download digital</p>
         <h2 id="guias-title" class="h">{guides.heading}</h2>
-        <p>[TODO]</p>
+        <p>Guias práticos para cuidar do seu cabelo em casa, escritos pela nossa equipe.</p>
         <a class="btn btn--end" href={to(guides.link.href)}>{guides.link.label}</a>
       </div>
       <ul class="guides__row">
@@ -132,8 +132,8 @@ const guideImgs = [guide1, guide2, guide3];
           <li class="guide">
             <Img src={guideImgs[i]} alt={g.image.alt} class="guide__img" sizes="16rem" />
             <h3>{g.title}</h3>
-            <p>[TODO]</p>
-            <p class="guide__price">[TODO]</p>
+            <p>{g.text}</p>
+            <p class="guide__price">{g.price}</p>
             <a class="btn btn--fill" href="#guias">Baixar PDF</a>
           </li>
         ))}
@@ -146,7 +146,7 @@ const guideImgs = [guide1, guide2, guide3];
       <div class="featured__text">
         <p class="eyebrow">Projetos em destaque</p>
         <h2 id="portfolio-title" class="h">{featured.heading}</h2>
-        <p>[TODO]</p>
+        <p>Transformações reais de clientes do salão, do corte à coloração completa.</p>
         <a class="btn" href={to(featured.link.href)}>{featured.link.label}</a>
       </div>
       <Img src={featuredImg} alt={featured.image.alt} class="featured__img" sizes="(min-width: 768px) 50vw, 100vw" />
@@ -159,7 +159,7 @@ const guideImgs = [guide1, guide2, guide3];
       <div>
         <h2 id="sobre-title" class="principal__eyebrow">{principal.heading}</h2>
         <p class="script principal__name">{principal.name}</p>
-        <p class="principal__bio">[TODO]</p>
+        <p class="principal__bio">Há 12 anos à frente da Casa Aurora, Helena une técnica e escuta para criar cortes e cores que combinam com a rotina de cada cliente.</p>
         <a class="btn" href={to(principal.link.href)}>{principal.link.label}</a>
       </div>
     </div>
@@ -211,7 +211,7 @@ const guideImgs = [guide1, guide2, guide3];
   <footer slot="footer" class="footer">
     <p class="footer__brand script">{nav.logoText}</p>
     <ul class="footer__socials">
-      {footer.socials.map((s: string) => <li><a href="#main" aria-label={`${s} (link em breve)`}>{s}</a></li>)}
+      {footer.socials.map((s: string) => <li><a href="#" aria-label={`${s} (link em breve)`}>{s}</a></li>)}
     </ul>
     <p class="footer__contact"><span>{footer.phone}</span><span>{footer.email}</span></p>
     <ul class="footer__links">

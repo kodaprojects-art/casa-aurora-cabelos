@@ -1,0 +1,59 @@
+/* Site 02 tokens: palette/type from shared/tokens/02-hair-stylist.css (R5); spacing measured on the reference. */
+@import '../../../../shared/tokens/02-hair-stylist.css';
+
+:root {
+  --color-bg: var(--color-off-white-3);
+  --color-surface: var(--color-linen);
+  --color-surface-2: var(--color-off-white);
+  --color-text: var(--color-taupe);
+  /* Contrast (axe AA): closest darker values of the reference tones. grey-warm #8b8981, sage #98b7ad, sand #cbb98d. */
+  --color-muted: #73726b;
+  --color-primary-large: #708780; /* sage for large/script text, 3:1 */
+  --color-primary-strong: #586a64; /* sage for small text and filled buttons, 4.5:1 */
+  --color-accent-text: #9e906e; /* sand for large text, 3:1 */
+  --color-border: var(--color-taupe);
+  --color-primary: var(--color-sage);
+  --color-accent: var(--color-sand);
+  --color-on-primary: var(--color-off-white-2);
+  --color-focus: var(--color-rust);
+
+  --font-heading: var(--font-body);
+  --font-script: "Great Vibes", cursive; /* approved stand-in for the reference script font */
+  --text-sm: 0.9rem;
+  --text-base: 1.2rem;
+  --text-lg: 1.5rem;
+  --text-xl: clamp(1.8rem, 1.2rem + 1.6vw, 2.25rem);
+  --text-h: clamp(2.2rem, 1.6rem + 1.6vw, 3rem);
+  --text-script: clamp(3.2rem, 2.4rem + 2.4vw, 5.4rem);
+  --leading-body: 1.5;
+  --leading-heading: 1.1;
+
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.5rem;
+  --space-lg: 3.125rem;
+  --space-xl: 5rem;
+  --space-section: clamp(3.125rem, 2rem + 3vw, 5rem);
+  --space-gutter: 1.5rem;
+  --container-max: 64rem;
+  --header-height: 4.25rem;
+
+  --border-width: 1px;
+  --radius-button: var(--radius-sm);
+  --radius-card: var(--radius-md);
+  --radius-input: var(--radius-sm);
+  --focus-width: 2px;
+  --focus-offset: 3px;
+
+  --duration-fast: 200ms;
+  --duration-slow: 600ms;
+  --opacity-hover: 0.75;
+  --z-header: 10;
+  --z-skip: 20;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --space-gutter: 2.5rem;
+  }
+}

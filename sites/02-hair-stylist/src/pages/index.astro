@@ -1,0 +1,280 @@
+---
+import '../styles/tokens.css';
+import '../styles/site.css';
+import BaseLayout from '../../../../shared/components/BaseLayout.astro';
+import Accordion from '../../../../shared/components/Accordion.astro';
+import Img from '../../../../shared/components/Img.astro';
+import content from '../content/site.json';
+
+import heroBg from '../assets/hero-bg.jpg';
+import hero from '../assets/hero.jpg';
+import gCortes from '../assets/g-cortes.jpg';
+import gColoracao from '../assets/g-coloracao.jpg';
+import gEscova from '../assets/g-escova.jpg';
+import gTratamentos from '../assets/g-tratamentos.jpg';
+import gPenteados from '../assets/g-penteados.jpg';
+import gMasculino from '../assets/g-masculino.jpg';
+import guide1 from '../assets/guide-1.jpg';
+import guide2 from '../assets/guide-2.jpg';
+import guide3 from '../assets/guide-3.jpg';
+import featuredImg from '../assets/featured.jpg';
+import principalImg from '../assets/principal.jpg';
+import ctaBg from '../assets/cta-bg.jpg';
+
+type Section = Record<string, any>;
+const sec = (id: string): Section => content.sections.find((s) => s.id === id) as Section;
+const nav = sec('navbar');
+const heroS = sec('hero');
+const gallery = sec('sticky-gallery');
+const services = sec('services');
+const guides = sec('guides');
+const featured = sec('featured-project');
+const principal = sec('principal');
+const clients = sec('clients');
+const reviews = sec('reviews');
+const faq = sec('faq');
+const cta = sec('cta');
+const footer = sec('footer');
+
+// Inner pages are out of scope: route links to the matching home section.
+const routes: Record<string, string> = {
+  '/sobre': '#sobre',
+  '/portfolio': '#portfolio',
+  '/servicos': '#servicos',
+  '/contato': '#contato',
+  '/guias': '#guias',
+  '/faq': '#faq',
+};
+const to = (href: string) => routes[href] ?? href;
+const navHrefs = ['#sobre', '#portfolio', '#servicos', '#contato'];
+const navLinks = nav.links.map((label: string, i: number) => ({ label, href: navHrefs[i] }));
+
+const galleryImgs = [gCortes, gColoracao, gEscova, gTratamentos, gPenteados, gMasculino];
+const guideImgs = [guide1, guide2, guide3];
+---
+
+<BaseLayout title={content.seo.title} description={content.seo.description}>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" /></noscript>
+  </Fragment>
+
+  <header slot="header" class="nav">
+    <nav class="nav__bar" aria-label="Principal">
+      <ul class="nav__links nav__links--left">
+        {navLinks.slice(0, 2).map((l: { label: string; href: string }) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+      <a class="nav__brand" href="#main">{nav.logoText}</a>
+      <ul class="nav__links nav__links--right">
+        {navLinks.slice(2).map((l: { label: string; href: string }) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-mobile">
+        <span class="visually-hidden">Abrir menu</span>
+        <span class="nav__burger" aria-hidden="true"></span>
+      </button>
+    </nav>
+    <div class="nav__menu" id="menu-mobile" hidden>
+      <ul>
+        {navLinks.map((l: { label: string; href: string }) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+      <p>{nav.mobileContact.phone}</p>
+      <p>{nav.mobileContact.email}</p>
+    </div>
+  </header>
+
+  <section class="hero">
+    <Img src={heroBg} alt="" class="hero__bg" priority sizes="100vw" />
+    <div class="hero__inner">
+      <div class="hero__card">
+        <h1>{heroS.heading}</h1>
+        <p>{heroS.text}</p>
+      </div>
+      <Img src={hero} alt={heroS.image.alt} class="hero__img" priority sizes="(min-width: 768px) 50vw, 100vw" />
+    </div>
+  </section>
+
+  <section class="showcase" id="servicos" aria-labelledby="servicos-title" style={`--count: ${gallery.items.length}`}>
+    <div class="showcase__sticky container">
+      <div class="showcase__media">
+        {gallery.items.map((item: Section, i: number) => (
+          <Img src={galleryImgs[i]} alt={item.image.alt} class:list={['showcase__img', { 'is-active': i === 0 }]} sizes="(min-width: 768px) 30rem, 100vw" />
+        ))}
+      </div>
+      <div class="showcase__text">
+        <p class="eyebrow">[TODO] cidade</p>
+        <h2 id="servicos-title" class="h">{services.heading}</h2>
+        <ul class="showcase__list">
+          {gallery.items.map((item: Section, i: number) => (
+            <li>
+              <button type="button" class:list={['showcase__trigger', { 'is-active': i === 0 }]} data-index={i} aria-pressed={i === 0 ? 'true' : 'false'}>
+                {item.trigger}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <a class="btn btn--end" href={to(services.link.href)}>{services.link.label}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="guides band" id="guias" aria-labelledby="guias-title">
+    <div class="container guides__inner">
+      <div class="guides__intro">
+        <p class="eyebrow">Download digital</p>
+        <h2 id="guias-title" class="h">{guides.heading}</h2>
+        <p>[TODO]</p>
+        <a class="btn btn--end" href={to(guides.link.href)}>{guides.link.label}</a>
+      </div>
+      <ul class="guides__row">
+        {guides.items.map((g: Section, i: number) => (
+          <li class="guide">
+            <Img src={guideImgs[i]} alt={g.image.alt} class="guide__img" sizes="16rem" />
+            <h3>{g.title}</h3>
+            <p>[TODO]</p>
+            <p class="guide__price">[TODO]</p>
+            <a class="btn btn--fill" href="#guias">Baixar PDF</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="featured" id="portfolio" aria-labelledby="portfolio-title">
+    <div class="container split">
+      <div class="featured__text">
+        <p class="eyebrow">Projetos em destaque</p>
+        <h2 id="portfolio-title" class="h">{featured.heading}</h2>
+        <p>[TODO]</p>
+        <a class="btn" href={to(featured.link.href)}>{featured.link.label}</a>
+      </div>
+      <Img src={featuredImg} alt={featured.image.alt} class="featured__img" sizes="(min-width: 768px) 50vw, 100vw" />
+    </div>
+  </section>
+
+  <section class="principal band" id="sobre" aria-labelledby="sobre-title">
+    <div class="container principal__inner">
+      <Img src={principalImg} alt={principal.image.alt} class="principal__img" sizes="(min-width: 768px) 22rem, 100vw" />
+      <div>
+        <h2 id="sobre-title" class="principal__eyebrow">{principal.heading}</h2>
+        <p class="script principal__name">{principal.name}</p>
+        <p class="principal__bio">[TODO]</p>
+        <a class="btn" href={to(principal.link.href)}>{principal.link.label}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="clients" aria-labelledby="clients-title">
+    <h2 id="clients-title" class="h">{clients.heading}</h2>
+    <ul class="clients__row container">
+      {clients.logos.map((logo: string) => <li>{logo}</li>)}
+    </ul>
+  </section>
+
+  <section class="reviews band" aria-labelledby="reviews-title">
+    <div class="container reviews__inner">
+      <h2 id="reviews-title" class="h">{reviews.heading}</h2>
+      <div class="reviews__track" aria-live="polite">
+        {reviews.items.map((r: Section, i: number) => (
+          <figure class="review" hidden={i !== 0}>
+            <blockquote>“{r.quote}”</blockquote>
+            <figcaption class="script">– {r.author}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="reviews__dots">
+        {reviews.items.map((_: Section, i: number) => (
+          <button type="button" class:list={['dot', { 'is-active': i === 0 }]} data-index={i} aria-label={`Avaliação ${i + 1}`} aria-pressed={i === 0 ? 'true' : 'false'}></button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq band" id="faq" aria-labelledby="faq-title">
+    <div class="container faq__inner">
+      <h2 id="faq-title" class="h">{faq.heading}</h2>
+      <Accordion items={faq.items.map((f: Section) => ({ question: f.q, answer: f.a }))} />
+      <a class="btn btn--end" href={to(faq.link.href)}>{faq.link.label}</a>
+    </div>
+  </section>
+
+  <section class="cta" id="contato" aria-labelledby="cta-title">
+    <Img src={ctaBg} alt="" class="cta__bg" sizes="100vw" />
+    <div class="cta__panel">
+      <h2 id="cta-title" class="h">{cta.heading}</h2>
+      <p>{cta.text}</p>
+      <a class="btn" href={`mailto:${footer.email}`}>{cta.cta.label}</a>
+    </div>
+  </section>
+
+  <footer slot="footer" class="footer">
+    <p class="footer__brand script">{nav.logoText}</p>
+    <ul class="footer__socials">
+      {footer.socials.map((s: string) => <li><a href="#main" aria-label={`${s} (link em breve)`}>{s}</a></li>)}
+    </ul>
+    <p class="footer__contact"><span>{footer.phone}</span><span>{footer.email}</span></p>
+    <ul class="footer__links">
+      {footer.links.map((l: string) => <li><a href={l === 'Guias' ? '#guias' : l === 'FAQ' ? '#faq' : '#main'}>{l}</a></li>)}
+    </ul>
+    <p class="footer__legal">© {new Date().getFullYear()} {content.businessName}. Todos os direitos reservados.</p>
+  </footer>
+</BaseLayout>
+
+<script>
+  // Mobile menu
+  const toggle = document.querySelector<HTMLButtonElement>('.nav__toggle')!;
+  const menu = document.getElementById('menu-mobile')!;
+  const setMenu = (open: boolean) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.hidden = !open;
+    document.body.classList.toggle('menu-open', open);
+  };
+  toggle.addEventListener("click", () => setMenu(Boolean(menu.hidden)));
+  menu.addEventListener('click', (e) => { if ((e.target as Element).closest('a')) setMenu(false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu.hidden) { setMenu(false); toggle.focus(); }
+  });
+
+  // Sticky preview: triggers (hover/focus/click) and scroll position swap the image.
+  const showcase = document.querySelector<HTMLElement>('.showcase')!;
+  const imgs = [...showcase.querySelectorAll<HTMLElement>('.showcase__img')];
+  const triggers = [...showcase.querySelectorAll<HTMLButtonElement>('.showcase__trigger')];
+  const show = (i: number) => {
+    imgs.forEach((el, n) => el.classList.toggle('is-active', n === i));
+    triggers.forEach((el, n) => {
+      el.classList.toggle('is-active', n === i);
+      el.setAttribute('aria-pressed', String(n === i));
+    });
+  };
+  triggers.forEach((t, i) => {
+    t.addEventListener('mouseenter', () => show(i));
+    t.addEventListener('focus', () => show(i));
+    t.addEventListener('click', () => show(i));
+  });
+  const desktop = matchMedia('(min-width: 768px)');
+  addEventListener('scroll', () => {
+    if (!desktop.matches) return;
+    const r = showcase.getBoundingClientRect();
+    const range = r.height - innerHeight;
+    if (r.top > 0 || -r.top > range) return;
+    show(Math.min(imgs.length - 1, Math.floor((-r.top / range) * imgs.length)));
+  }, { passive: true });
+
+  // Reviews: dots + autoplay
+  const reviews = [...document.querySelectorAll<HTMLElement>('.review')];
+  const dots = [...document.querySelectorAll<HTMLButtonElement>('.dot')];
+  let current = 0;
+  const go = (i: number) => {
+    current = i;
+    reviews.forEach((r, n) => (r.hidden = n !== i));
+    dots.forEach((d, n) => {
+      d.classList.toggle('is-active', n === i);
+      d.setAttribute('aria-pressed', String(n === i));
+    });
+  };
+  dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(() => go((current + 1) % reviews.length), 6000);
+  }
+</script>

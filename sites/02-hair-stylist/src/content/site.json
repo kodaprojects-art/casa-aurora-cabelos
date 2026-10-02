@@ -1,0 +1,99 @@
+{
+  "businessName": "Casa Aurora Cabelos",
+  "reference": "R5",
+  "seo": {
+    "title": "Casa Aurora Cabelos | Cabeleireiro em [TODO]",
+    "description": "Cabeleireiro autoral em [TODO]: cortes, coloração e tratamentos pensados para o seu estilo. Agende seu horário."
+  },
+  "sections": [
+    {
+      "id": "navbar",
+      "logoText": "Casa Aurora",
+      "links": ["Sobre", "Portfólio", "Serviços", "Contato"],
+      "mobileContact": { "phone": "[TODO]", "email": "[TODO]" }
+    },
+    {
+      "id": "hero",
+      "heading": "Cabelos que fazem você se sentir em casa",
+      "text": "Cortes, cores e cuidados criados para o seu jeito, em um ambiente acolhedor e sem pressa.",
+      "image": { "alt": "Cabeleireiro finalizando corte em cliente", "unsplashQuery": "hair stylist cutting hair salon" }
+    },
+    {
+      "id": "sticky-gallery",
+      "items": [
+        { "trigger": "Cortes", "image": { "alt": "Corte de cabelo feminino moderno", "unsplashQuery": "modern haircut woman" } },
+        { "trigger": "Coloração", "image": { "alt": "Cabelo com mechas loiras", "unsplashQuery": "blonde highlights hair" } },
+        { "trigger": "Escova e finalização", "image": { "alt": "Finalização com secador", "unsplashQuery": "blow dry hair styling" } },
+        { "trigger": "Tratamentos", "image": { "alt": "Aplicação de tratamento capilar", "unsplashQuery": "hair treatment salon" } },
+        { "trigger": "Penteados", "image": { "alt": "Penteado para evento", "unsplashQuery": "bridal hairstyle updo" } },
+        { "trigger": "Masculino", "image": { "alt": "Corte de cabelo masculino", "unsplashQuery": "men haircut barber" } }
+      ]
+    },
+    {
+      "id": "services",
+      "heading": "Serviços de cabeleireiro",
+      "link": { "label": "Detalhes dos serviços", "href": "/servicos" }
+    },
+    {
+      "id": "guides",
+      "heading": "Guias de cuidados",
+      "items": [
+        { "title": "Como manter a cor por mais tempo", "image": { "alt": "Produtos para cabelo colorido", "unsplashQuery": "hair care products" } },
+        { "title": "Escolhendo o corte ideal para seu rosto", "image": { "alt": "Cliente diante do espelho do salão", "unsplashQuery": "salon mirror client" } },
+        { "title": "Rotina de cuidados em casa", "image": { "alt": "Escova e pente sobre a bancada", "unsplashQuery": "hairbrush comb flat lay" } }
+      ],
+      "link": { "label": "Ver todos", "href": "/guias" }
+    },
+    {
+      "id": "featured-project",
+      "heading": "Transformação em destaque",
+      "link": { "label": "Ver nosso portfólio", "href": "/portfolio" },
+      "image": { "alt": "Antes e depois de transformação capilar", "unsplashQuery": "hair transformation salon" }
+    },
+    {
+      "id": "principal",
+      "heading": "Conheça o cabeleireiro responsável",
+      "name": "[TODO]",
+      "link": { "label": "Mais sobre nós", "href": "/sobre" },
+      "image": { "alt": "Retrato do cabeleireiro no salão", "unsplashQuery": "hairdresser portrait" }
+    },
+    {
+      "id": "clients",
+      "heading": "Marcas e parceiros",
+      "logos": ["[TODO]", "[TODO]", "[TODO]", "[TODO]"]
+    },
+    {
+      "id": "reviews",
+      "heading": "Avaliações",
+      "items": [
+        { "quote": "[TODO]", "author": "[TODO]" },
+        { "quote": "[TODO]", "author": "[TODO]" },
+        { "quote": "[TODO]", "author": "[TODO]" }
+      ]
+    },
+    {
+      "id": "faq",
+      "heading": "Perguntas sobre cabelo",
+      "items": [
+        { "q": "Quanto custa um corte?", "a": "[TODO]" },
+        { "q": "Preciso agendar com antecedência?", "a": "[TODO]" },
+        { "q": "Quanto tempo dura uma coloração?", "a": "[TODO]" },
+        { "q": "Quais produtos vocês utilizam?", "a": "[TODO]" }
+      ],
+      "link": { "label": "Mais respostas", "href": "/faq" }
+    },
+    {
+      "id": "cta",
+      "heading": "Não sabe por onde começar?",
+      "text": "Conte o que você deseja e indicamos o serviço ideal para o seu cabelo.",
+      "cta": { "label": "Fale conosco", "href": "/contato" }
+    },
+    {
+      "id": "footer",
+      "socials": ["Instagram", "Facebook", "TikTok", "[TODO]"],
+      "phone": "[TODO]",
+      "email": "[TODO]",
+      "links": ["Guias", "Feedback", "FAQ", "Garantia", "Trabalhe conosco", "Termos e privacidade"]
+    }
+  ]
+}
